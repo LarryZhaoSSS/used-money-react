@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import x from '../assets/icons/dollar.svg';
 import { Icon } from './Icon';
 console.log(x);
@@ -11,14 +11,21 @@ const NavWrapper = styled.nav`
     display: flex;
     li {
       width: 33.33%;
-      display: flex;
-      padding: 4px 0;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      .icon {
-        width: 24px;
-        height: 24px;
+      text-align: center;
+      > a {
+        display: flex;
+        padding: 4px 0;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        &.selected {
+          color: red;
+        }
+        .icon {
+          width: 24px;
+          height: 24px;
+          fill: currentColor;
+        }
       }
     }
   }
@@ -28,16 +35,22 @@ export const Nav = () => {
     <NavWrapper>
       <ul>
         <li>
-          <Icon name='label' />
-          <Link to='/tags'>标签</Link>
+          <NavLink to='/tags' activeClassName='selected'>
+            <Icon name='label' />
+            标签
+          </NavLink>
         </li>
         <li>
-          <Icon name='dollar' />
-          <Link to='/money'>记账</Link>
+          <NavLink to='/money' activeClassName='selected'>
+            <Icon name='dollar' />
+            记账
+          </NavLink>
         </li>
         <li>
-          <Icon name='statistic' />
-          <Link to='/statistics'>statistics</Link>
+          <NavLink to='/statistics' activeClassName='selected'>
+            <Icon name='statistic' />
+            statistics
+          </NavLink>
         </li>
       </ul>
     </NavWrapper>

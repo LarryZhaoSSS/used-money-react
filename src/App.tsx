@@ -9,7 +9,6 @@ import {
 import { Statistics } from 'views/Statistics';
 import { Money } from 'views/Money';
 import { NoMatch } from 'views/NoMatch';
-import { Nav } from 'components/Nav';
 
 function App() {
   return (
