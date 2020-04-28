@@ -1,6 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
+import x from '../assets/icons/dollar.svg';
+console.log(x);
 const NavWrapper = styled.nav`
   line-height: 24px;
   box-shadow: 0 0 3px rgba(0, 0, 0, 0, 0.25);
@@ -8,8 +10,15 @@ const NavWrapper = styled.nav`
     display: flex;
     li {
       width: 33.33%;
-      text-align: center;
-      padding: 16px;
+      display: flex;
+      padding: 4px 0;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      .icon {
+        width: 24px;
+        height: 24px;
+      }
     }
   }
 `;
@@ -18,10 +27,16 @@ export const Nav = () => {
     <NavWrapper>
       <ul>
         <li>
-          <Link to='/tags'>tag</Link>
+          <svg fill='red' className='icon'>
+            <use xlinkHref='#dollar'></use>
+          </svg>
+          <Link to='/tags'>标签</Link>
         </li>
         <li>
-          <Link to='/money'>money</Link>
+          <svg fill='red' className='icon'>
+            <use xlinkHref='#dollar'></use>
+          </svg>
+          <Link to='/money'>记账</Link>
         </li>
         <li>
           <Link to='/statistics'>statistics</Link>
