@@ -7,6 +7,7 @@ console.log(x);
 const NavWrapper = styled.nav`
   line-height: 24px;
   box-shadow: 0 0 3px rgba(0, 0, 0, 0, 0.25);
+  background: #fff;
   ul {
     display: flex;
     li {
@@ -35,15 +36,15 @@ export const Nav = () => {
     <NavWrapper>
       <ul>
         <li>
-          <NavLink to='/tags' activeClassName='selected'>
-            <Icon name='label' />
-            标签
-          </NavLink>
-        </li>
-        <li>
           <NavLink to='/money' activeClassName='selected'>
             <Icon name='dollar' />
             记账
+          </NavLink>
+        </li>
+        <li>
+          <NavLink to='/tags' activeClassName='selected'>
+            <Icon name='label' />
+            标签
           </NavLink>
         </li>
         <li>
