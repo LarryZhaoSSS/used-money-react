@@ -3,7 +3,6 @@ import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
 import x from '../assets/icons/dollar.svg';
 import { Icon } from './Icon';
-console.log(x);
 const NavWrapper = styled.nav`
   line-height: 24px;
   box-shadow: 0 0 3px rgba(0, 0, 0, 0, 0.25);
