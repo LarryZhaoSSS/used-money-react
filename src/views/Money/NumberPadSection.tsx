@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import React, { useState } from 'react';
+import { generateOutput } from './NumberPadSection/generateOutput';
 const Wrapper = styled.section`
   display: flex;
   flex-direction: column;
@@ -75,46 +76,13 @@ export const NumberPadSection: React.FC = () => {
     if (text === null) {
       return;
     }
-    switch (text) {
-      case '0':
-      case '1':
-      case '2':
-      case '3':
-      case '4':
-      case '5':
-      case '6':
-      case '7':
-      case '8':
-      case '9':
-        console.log(text);
-        if (output === '0') {
-          setOutput(text);
-        } else {
-          setOutput(output + text);
-        }
+    if (text === 'ok') {
+      // TODO
+      return;
+    }
 
-        break;
-      case '.':
-        if (output.includes('.')) {
-          return;
-        }
-        setOutput(output + '.');
-        break;
-      case '删除':
-        if (output.length === 1) {
-          setOutput('0');
-        } else {
-          setOutput(output.slice(0, -1));
-        }
-        console.log('删除');
-        break;
-      case '清空':
-        console.log('清空');
-        setOutput('');
-        break;
-      case 'ok':
-        console.log('ok');
-        break;
+    if ('0123456789.'.split('').concat('删除', '清空').indexOf(text) >= 0) {
+      setOutput(generateOutput(text, output));
     }
   };
   return (
