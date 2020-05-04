@@ -14,45 +14,48 @@ type Category = '-' | '+';
 function Money() {
   const [selected, setSelected] = useState({
     tags: [] as string[],
-    notes: '',
+    note: '',
     category: '-' as Category,
     amount: 0,
   });
+  type Selected = typeof selected;
+  const onChange = (obj: Partial<Selected>) => {
+    setSelected({
+      ...selected,
+      ...obj,
+    });
+  };
   return (
     <MyLayout>
       <TagsSection
         value={selected.tags}
         onChange={(tags) =>
-          setSelected({
-            ...selected,
-            tags: tags,
+          onChange({
+            tags,
           })
         }
       />
       <NoteSection
-        value={selected.notes}
+        value={selected.note}
         onChange={(note) => {
-          setSelected({
-            ...selected,
-            notes: note,
+          onChange({
+            note,
           });
         }}
       />
       <CategorySection
         value={selected.category}
         onChange={(category) => {
-          setSelected({
-            ...selected,
-            category: category,
+          onChange({
+            category,
           });
         }}
       ></CategorySection>
       <NumberPadSection
         value={selected.amount}
         onChange={(amount) => {
-          setSelected({
-            ...selected,
-            amount: amount,
+          onChange({
+            amount,
           });
         }}
         onOk={() => {}}

@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import React, { useState } from 'react';
+import React from 'react';
 import { generateOutput } from './NumberPadSection/generateOutput';
 const Wrapper = styled.section`
   display: flex;
