@@ -20,8 +20,12 @@ const Wrapper = styled.section`
     }
   }
 `;
-export const NoteSection: React.FC = () => {
-  const [note, setNotes] = useState('');
+type Props = {
+  value: string;
+  onChange: (value: string) => void;
+};
+export const NoteSection: React.FC<Props> = (props) => {
+  const note = props.value;
   return (
     <Wrapper>
       <label>
@@ -29,7 +33,7 @@ export const NoteSection: React.FC = () => {
         <input
           value={note}
           onChange={(e) => {
-            setNotes(e.target.value.trim());
+            props.onChange(e.target.value.trim());
           }}
           type='text'
           placeholder='在这里添加备注'
