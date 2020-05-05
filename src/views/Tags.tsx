@@ -45,9 +45,9 @@ export const Tags = () => {
       <TagList>
         {tags.map((tag) => {
           return (
-            <li key={tag}>
-              <Link to={`/tags/${tag}`}>
-                <span className='oneLine'> {tag}</span>
+            <li key={tag.id}>
+              <Link to={`/tags/${tag.name}`}>
+                <span className='oneLine'> {tag.name}</span>
                 <Icon name='arrow-right' />
               </Link>
             </li>
