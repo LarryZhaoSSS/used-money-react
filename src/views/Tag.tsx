@@ -21,6 +21,17 @@ const Topbar = styled.header`
     width: 16px;
   }
 `;
+const InputWrapper = styled.div`
+  background: #fff;
+  padding: 0 16px;
+  margin-top: 16px;
+`;
+const CenterButtonWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 48px;
+`;
 export const Tag = () => {
   const { findTag } = useTags();
   const { id } = useParams<Params>();
@@ -33,10 +44,12 @@ export const Tag = () => {
         <div className='space'></div>
       </Topbar>
       <div>
-        <InputItem label='备注' placeholder='请输入备注' />
-        <div>
-          <Button>新增标签</Button>
-        </div>
+        <InputWrapper>
+          <InputItem label='标签名' type='text' placeholder='请输入备注' />
+        </InputWrapper>
+        <CenterButtonWrapper>
+          <Button>删除标签</Button>
+        </CenterButtonWrapper>
       </div>
     </Layout>
   );

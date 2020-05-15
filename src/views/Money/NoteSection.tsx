@@ -3,7 +3,7 @@ import React, { ChangeEventHandler } from 'react';
 import { InputItem } from 'components/InputItem';
 const Wrapper = styled.section`
   background: #f5f5f5;
-  padding: 10px 16px;
+  padding: 14px 16px;
   font-size: 14px;
 `;
 type Props = {
