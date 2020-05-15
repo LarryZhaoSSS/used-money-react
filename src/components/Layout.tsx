@@ -9,6 +9,7 @@ export const Wrapper = styled.div`
 export const Main = styled.div`
   flex-grow: 1;
   overflow: auto;
+  background: #f5f5f5;
 `;
 
 export const Layout = (props: any) => {
