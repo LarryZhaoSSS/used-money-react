@@ -33,16 +33,11 @@ const CenterButtonWrapper = styled.div`
   margin-top: 48px;
 `;
 export const Tag = () => {
-  const { findTag, updateTag } = useTags();
+  const { findTag, updateTag, deleteTag } = useTags();
   const { id: idString } = useParams<Params>();
   const tag = findTag(parseInt(idString));
-  return (
-    <Layout>
-      <Topbar>
-        <Icon name='arrow-left' />
-        <span>编辑标签</span>
-        <div className='space'></div>
-      </Topbar>
+  const tagContent = (tag: { id: number; name: string }) => {
+    return (
       <div>
         <InputWrapper>
           <InputItem
@@ -56,9 +51,25 @@ export const Tag = () => {
           />
         </InputWrapper>
         <CenterButtonWrapper>
-          <Button>删除标签</Button>
+          <Button
+            onClick={() => {
+              deleteTag(tag.id);
+            }}
+          >
+            删除标签
+          </Button>
         </CenterButtonWrapper>
       </div>
+    );
+  };
+  return (
+    <Layout>
+      <Topbar>
+        <Icon name='arrow-left' />
+        <span>编辑标签</span>
+        <div className='space'></div>
+      </Topbar>
+      {tag ? tagContent(tag) : <div>tag不存在</div>}
     </Layout>
   );
 };
