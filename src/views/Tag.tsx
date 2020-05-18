@@ -33,9 +33,9 @@ const CenterButtonWrapper = styled.div`
   margin-top: 48px;
 `;
 export const Tag = () => {
-  const { findTag } = useTags();
-  const { id } = useParams<Params>();
-  const tag = findTag(parseInt(id));
+  const { findTag, updateTag } = useTags();
+  const { id: idString } = useParams<Params>();
+  const tag = findTag(parseInt(idString));
   return (
     <Layout>
       <Topbar>
@@ -45,7 +45,15 @@ export const Tag = () => {
       </Topbar>
       <div>
         <InputWrapper>
-          <InputItem label='标签名' type='text' placeholder='请输入备注' />
+          <InputItem
+            onChange={(e) => {
+              updateTag(tag.id, { name: e.target.value });
+            }}
+            value={tag.name}
+            label='标签名'
+            type='text'
+            placeholder='请输入备注'
+          />
         </InputWrapper>
         <CenterButtonWrapper>
           <Button>删除标签</Button>
