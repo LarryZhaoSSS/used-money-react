@@ -10,9 +10,10 @@ type Props = {
   name: string;
 };
 export const Icon = (props: Props) => {
+  const { name } = props;
   return (
-    <svg className='icon'>
-      <use xlinkHref={`#${props.name}`}></use>
+    <svg className={`icon`}>
+      <use xlinkHref={`#${name}`}></use>
     </svg>
   );
 };
