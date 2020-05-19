@@ -1,6 +1,6 @@
 import React from 'react';
 import { Layout } from 'components/Layout';
-import { useTags } from 'useTags';
+import { useTags } from 'hooks/useTags';
 import styled from 'styled-components';
 import { Icon } from 'components/Icon';
 import { Link } from 'react-router-dom';
@@ -33,7 +33,7 @@ const Space = styled.div`
   height: 16px;
 `;
 export const Tags = () => {
-  const { tags, setTags } = useTags();
+  const { tags, setTags, addTag } = useTags();
   return (
     <Layout>
       <TagList>
@@ -52,7 +52,13 @@ export const Tags = () => {
         <Space />
         <Space />
         <Space />
-        <Button>新增标签</Button>
+        <Button
+          onClick={() => {
+            addTag();
+          }}
+        >
+          新增标签
+        </Button>
       </Center>
     </Layout>
   );
