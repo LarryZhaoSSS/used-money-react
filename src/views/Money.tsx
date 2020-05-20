@@ -28,11 +28,11 @@ function Money() {
     });
   };
   const { records, addRecord } = useRecords();
-  console.log('records');
-  console.log(records);
   const submit = () => {
-    addRecord(selected);
-    alert('保存成功');
+    if (addRecord(selected)) {
+      alert('保存成功');
+    }
+
     setSelected(defaultFormData);
   };
   return (
