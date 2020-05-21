@@ -1,7 +1,6 @@
 import styled from 'styled-components';
-import React, { useState } from 'react';
+import React from 'react';
 import { useTags } from 'hooks/useTags';
-import { createId } from 'lib/createId';
 const Wrapper = styled.section`
   background-color: #fff;
   padding: 12px 16px;
@@ -38,7 +37,7 @@ type Props = {
   onChange: (selected: number[]) => void;
 };
 export const TagsSection: React.FC<Props> = (props) => {
-  const { tags, setTags, addTag } = useTags();
+  const { tags, addTag } = useTags();
   // const [selectedTags, setSelectedTags] = useState<string[]>([]);
   const selectedTagIds = props.value;
 

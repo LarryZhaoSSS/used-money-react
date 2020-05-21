@@ -33,7 +33,7 @@ const Space = styled.div`
   height: 16px;
 `;
 export const Tags = () => {
-  const { tags, setTags, addTag } = useTags();
+  const { tags, addTag } = useTags();
   return (
     <Layout>
       <TagList>
